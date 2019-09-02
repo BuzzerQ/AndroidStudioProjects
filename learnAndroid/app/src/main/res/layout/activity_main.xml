@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity"
+    android:id="@+id/main_layout">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrasi"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <EditText
+        android:id="@+id/et_nama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nama" />
+
+    <EditText
+        android:id="@+id/et_alamat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Alamat Lengkap" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Program Studi Pilihan" />
+
+    <Spinner
+        android:id="@+id/sp_prodi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/prodi" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lulusan" />
+
+    <RadioGroup
+        android:id="@+id/rg_lulusan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/rb_SMA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SMA" />
+
+        <RadioButton
+            android:id="@+id/rb_SMK"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SMK" />
+
+        <RadioButton
+            android:id="@+id/rb_aliyah"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Aliyah" />
+
+    </RadioGroup>
+
+    <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/cb_valid"
+        android:text="Data Ini Valid"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="Simpan"
+            android:id="@+id/bt_simpan"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="3dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#BDBDBD"
+            android:text="Hapus"
+            android:id="@+id/bt_hapus"
+            android:layout_margin="3dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#039BE5"
+            android:text="Toast"
+            android:id="@+id/bt_toast"
+            android:layout_weight="1"
+            android:layout_margin="3dp"/>
+
+        <Button
+            android:id="@+id/bt_notifikasi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:background="#FDD835"
+            android:text="Notif" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Snack"
+            android:id="@+id/bt_snack_bar"
+            android:background="#F4511E"
+            android:layout_weight="1"
+            android:layout_margin="3dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Exit"
+            android:id="@+id/bt_exit"
+            android:background="#E700FF"
+            android:layout_weight="1"
+            android:layout_margin="3dp"/>
+
+    </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

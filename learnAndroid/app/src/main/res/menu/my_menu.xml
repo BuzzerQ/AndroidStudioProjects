@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/mn_snack_bar"
+        android:title="Snackbar"
+        android:icon="@drawable/ic_action_dehaze"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/mn_toast"
+        android:title="Toast"
+        android:icon="@drawable/ic_action_done"
+        app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/mn_notifikasi"
+        android:title="Notifikasi"
+        android:icon="@drawable/ic_action_radio_button_checked"
+        app:showAsAction="never"/>
+</menu>

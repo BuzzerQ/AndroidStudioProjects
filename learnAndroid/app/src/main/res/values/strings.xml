@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">learnAndroid</string>
+    <string-array name="prodi">
+        <item>Administrasi Perkantoran</item>
+        <item>Komputerisasi Akuntansi</item>
+        <item>Manajemen Informatika</item>
+        <item>Sekretaris</item>
+        <item>Hubungan Masyarakat</item>
+    </string-array>
+</resources>

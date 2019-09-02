@@ -16,6 +16,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -174,6 +175,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        //memanggil layout menu
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.my_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 

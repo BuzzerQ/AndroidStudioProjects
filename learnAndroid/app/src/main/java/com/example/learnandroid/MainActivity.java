@@ -187,8 +187,42 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.mn_notifikasi:
+                //notifikasi
+                NotificationCompat.Builder mBuilder =
+                        new NotificationCompat.Builder(getApplicationContext(), "notify_001");
+                Intent ii = new Intent(getApplicationContext(), MainActivity.class);
+                PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, ii, 0);
+
+                NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle();
+                bigText.setBigContentTitle("Punya lu");
+                bigText.setSummaryText("Cek Notifikasi Lu Cuk");
+
+                mBuilder.setContentIntent(pendingIntent);
+                mBuilder.setSmallIcon(R.mipmap.ic_launcher_round);
+                mBuilder.setContentTitle("Punya lu");
+                mBuilder.setContentText("Cek Notifikasi Lu Cuk");
+                mBuilder.setPriority(Notification.PRIORITY_MAX);
+                mBuilder.setStyle(bigText);
+                mBuilder.setDefaults(Notification.DEFAULT_SOUND); //suara
+                mBuilder.setVibrate(new long[] {1000, 1000, 1000, 1000, 1000, 1000}); //getar
+
+                NotificationManager mNotificationManager =
+                        (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    NotificationChannel channel = new NotificationChannel("notify_001",
+                            "Channel human readable title",
+                            NotificationManager.IMPORTANCE_DEFAULT);
+                    mNotificationManager.createNotificationChannel(channel);
+                }
+
+                mNotificationManager.notify(0, mBuilder.build());
                 return true;
             case R.id.mn_snack_bar:
+                View v = findViewById(R.id.main_layout);
+                String pesan = "Snackbar activated";
+                int durasi = Snackbar.LENGTH_SHORT;
+                Snackbar.make(v,pesan,durasi).show();
                 return true;
             case R.id.mn_toast:
                 return true;

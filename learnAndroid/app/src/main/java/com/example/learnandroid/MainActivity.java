@@ -185,6 +185,15 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()){
+            case R.id.mn_notifikasi:
+                return true;
+            case R.id.mn_snack_bar:
+                return true;
+            case R.id.mn_toast:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

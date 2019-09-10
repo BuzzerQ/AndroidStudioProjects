@@ -24,6 +24,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     Spinner spProdi;
     CheckBox cbValid;
     RadioGroup rgLulusan;
+    RadioButton rbLulus;
     Button btSimpan, btnNotifikasi, btnToast, btnHapus, btnExit, btnSnackBar;
 
     @Override
@@ -55,6 +57,47 @@ public class MainActivity extends AppCompatActivity {
         btnExit = (Button) findViewById(R.id.bt_exit);
         btnSnackBar = (Button) findViewById(R.id.bt_snack_bar);
 
+        final RadioButton rbSMA = (RadioButton) findViewById(R.id.rb_SMA);
+        rbSMA.setChecked(true);
+
+
+        btSimpan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String nama, alamat, prodi, lulusan;
+                boolean valid;
+
+                nama = etNama.getText().toString();
+                alamat = etAlamat.getText().toString();
+                prodi = spProdi.getSelectedItem().toString();
+
+                int selectedid = rgLulusan.getCheckedRadioButtonId();
+                final RadioButton rbLulus = (RadioButton) findViewById(selectedid);
+
+                lulusan = rbLulus.getText().toString();
+
+                valid = cbValid.isChecked();
+
+                if(!valid){
+                    Toast.makeText(getApplicationContext(), "Lengkapi Formulir Anda", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(nama.length() == 0 || alamat.length() == 0){
+                    Toast.makeText(getApplicationContext(), "Lengkapi terlebih dahulu", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                Intent i = new Intent(MainActivity.this, detailActivity.class);
+                i.putExtra("i_nama", nama);
+                i.putExtra("i_alamat", alamat);
+                i.putExtra("i_prodi", prodi);
+                i.putExtra("i_lulusan", lulusan);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                getApplicationContext().startActivity(i);
+            }
+        });
+
         btnHapus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                                     public void onClick(DialogInterface dialog, int which) {
                                         Toast.makeText(
                                                 getApplicationContext(),
-                                                "OK Ditekan",
+                                                "Data Berhasil Dihapus",
                                                 Toast.LENGTH_SHORT
                                         ).show();
                                     }
@@ -83,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
                                     public void onClick(DialogInterface dialog, int which) {
                                         Toast.makeText(
                                                 getApplicationContext(),
-                                                "Di batalkan",
+                                                "Dibatalkan",
                                                 Toast.LENGTH_SHORT
                                         ).show();
                                     }
@@ -100,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(
                         getApplicationContext(),
-                        "Hei " + etNama.getText().toString(),
+                        "Hei " + etNama.getText().toString()+ " dari " + etAlamat.getText().toString(),
                         Toast.LENGTH_SHORT)
                         .show();
 
@@ -130,11 +173,11 @@ public class MainActivity extends AppCompatActivity {
 
                 mBuilder.setContentIntent(pendingIntent);
                 mBuilder.setSmallIcon(R.mipmap.ic_launcher_round);
-                mBuilder.setContentTitle("Punya lu");
-                mBuilder.setContentText("Cek Notifikasi Lu Cuk");
+                mBuilder.setContentTitle("learnAndroid");
+                mBuilder.setContentText("Munculkan notifikasi!");
                 mBuilder.setPriority(Notification.PRIORITY_MAX);
                 mBuilder.setStyle(bigText);
-                mBuilder.setDefaults(Notification.DEFAULT_SOUND); //suara
+                mBuilder.setDefaults(Notification.DEFAULT_SOUND|Notification.DEFAULT_LIGHTS|Notification.DEFAULT_VIBRATE); //suara
                 mBuilder.setVibrate(new long[] {1000, 1000, 1000, 1000, 1000, 1000}); //getar
 
                 NotificationManager mNotificationManager =
@@ -178,6 +221,22 @@ public class MainActivity extends AppCompatActivity {
         //memanggil layout menu
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.my_menu, menu);
+
+        MenuItem menuItem = menu.findItem(R.id.mn_cari);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+
+                return false;
+            }
+        });
+
         return super.onCreateOptionsMenu(menu);
     }
 

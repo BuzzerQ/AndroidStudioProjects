@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".detailActivity"
+    android:padding="16dp"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nama Lengkap"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lulusan"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/tv_nama"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Alamat / Domisili"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Alamat"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/tv_alamat"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Program Studi"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Prodi"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/tv_prodi"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lulusan"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lulusan"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/tv_lulusan"/>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
